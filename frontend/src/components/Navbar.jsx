@@ -17,7 +17,7 @@ const Navbar = () => {
 
 
 
-    const currentUser = true ;
+    const currentUser = false ;
   return (
     <header className='max-w-screen-2xl mx-auto px-4 py-6'>
         <nav className='flex justify-between md:items-center'>
@@ -68,11 +68,14 @@ const Navbar = () => {
                             )
                         }
 
-                        </> : <HiOutlineUser className='size-6'/>
+                        </> : 
+                        <Link to='/login'>
+                            <HiOutlineUser className='size-6'/>
+                        </Link>
                     }
                 </div>
                 <button className='hidden sm:block'>
-                    <Link to='/login'>
+                    <Link>
                         <HiOutlineHeart className='size-6' />
                     </Link> 
                 </button>
