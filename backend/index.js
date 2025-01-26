@@ -4,25 +4,26 @@ const dotenv = require('dotenv')
 dotenv.config();
 const connectToDb = require('./db/db');
 const app = express()
+const cors = require('cors')
 const port = process.env.PORT || 5000
-
+const bookRoutes = require('./routes/book.routes')
 
 connectToDb();
+app.use(express.json())
+app.use(cors({
+  origin: ['http://localhost:5000'],
+  credentials: true
+}));
+app.use(express.urlencoded({ extended: true }));  
+
+
+app.use(express.json());app.get('/', (req, res) => {
+  res.send("hello world");
+});
+
 // routes
 
-
-// async function  main(){
-//   await mongoose.connect('mongodb://127.0.0.1:27017/test');
-//   app.use('/', (req,res)=>{
-//       res.send('Book store  Server')
-//   });
-// // }
-// main().then(()=>{
-//   console.log('Connected to mongodb')  // Check if connection is successful
-// })
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+app.use('/api/books',bookRoutes)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
