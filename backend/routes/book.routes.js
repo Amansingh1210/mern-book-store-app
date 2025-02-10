@@ -11,4 +11,8 @@ router.post('/add-book',bookController.addBoook)
 
 router.get('/get-books',bookController.getAllBooks)
 
+// get single book
+
+router.get('/get-book/:id',bookController.getSingleBook)
+
 module.exports = router;
