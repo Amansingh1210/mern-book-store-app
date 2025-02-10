@@ -5,6 +5,6 @@ const bookController = require('../controllers/book.controller')
 
 // ADD A BOOK
 
-router.post('/add',bookController.addBoook)
+router.post('/create-book',bookController.addBoook)
 
 module.exports = router;
