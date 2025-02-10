@@ -5,6 +5,10 @@ const bookController = require('../controllers/book.controller')
 
 // ADD A BOOK
 
-router.post('/create-book',bookController.addBoook)
+router.post('/add-book',bookController.addBoook)
+
+// get all books
+
+router.get('/get-books',bookController.getAllBooks)
 
 module.exports = router;
